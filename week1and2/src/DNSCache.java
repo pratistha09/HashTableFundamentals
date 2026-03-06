@@ -1,5 +1,4 @@
 import java.util.*;
-
 class DNSEntry {
     String domain;
     String ipAddress;
@@ -24,6 +23,7 @@ public class DNSCache {
             };
     private int cacheHits = 0;
     private int cacheMisses = 0;
+
     public String resolve(String domain) {
         DNSEntry entry = cache.get(domain);
         if (entry != null) {
@@ -42,6 +42,7 @@ public class DNSCache {
         System.out.println("Cache MISS → Querying upstream DNS");
         return ip;
     }
+
     private String queryUpstreamDNS(String domain) {
         Random r = new Random();
         return "172.217.14." + r.nextInt(255);
